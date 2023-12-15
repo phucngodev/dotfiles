@@ -3,7 +3,7 @@ echo "===============Install homebrew and software================="
 
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 
-brew install go nodejs tmux neovim ripgrep htop starship fzf glow postgresql@16 protobuf colima docker docker-compose kubectl httpd mariadb
+brew install go nodejs tmux neovim ripgrep htop starship fzf glow postgresql@16 protobuf colima docker docker-compose kubectl mariadb
 pip3 install pynvim
 
 echo "=====================Copy config files======================="
@@ -31,7 +31,6 @@ go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
 go install github.com/google/gnostic/cmd/protoc-gen-openapi@latest
 go install github.com/go-kratos/kratos/cmd/protoc-gen-go-http/v2@latest
 go install github.com/pressly/goose/v3/cmd/goose@latest
-go install github.com/sqlc-dev/sqlc/cmd/sqlc@latest
 go install github.com/google/wire/cmd/wire@latest
 go install github.com/cosmtrek/air@latest
 go install go.uber.org/mock/mockgen@latest

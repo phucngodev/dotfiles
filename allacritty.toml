@@ -1,0 +1,75 @@
+live_config_reload = true
+working_directory = "/Users/phuc/Projects/"
+
+[colors.bright]
+black = "0x4b505b"
+blue = "0x5079be"
+cyan = "0x3a8b84"
+green = "0x608e32"
+magenta = "0xb05ccc"
+red = "0xd05858"
+white = "0xfafafa"
+yellow = "0xbe7e05"
+
+[colors.normal]
+black = "0x4b505b"
+blue = "0x5079be"
+cyan = "0x3a8b84"
+green = "0x608e32"
+magenta = "0xb05ccc"
+red = "0xd05858"
+white = "0xfafafa"
+yellow = "0xbe7e05"
+
+[colors.primary]
+background = "0xfafafa"
+foreground = "0x4b505b"
+
+[colors.cursor]
+text = "0xbe7e05"
+cursor = "0xbe7e05"
+
+[font]
+size = 19
+
+[font.normal]
+family = "GoMono Nerd Font"
+
+[font.offset]
+x = 0
+y = 4
+
+[font.glyph_offset]
+x = 0
+y = 2
+
+[[keyboard.bindings]]
+action = "ToggleMaximized"
+key = "Return"
+mods = "Alt"
+
+[scrolling]
+history = 10000
+
+[selection]
+save_to_clipboard = true
+
+[shell]
+args = ["-l", "-c", "tux attach || tmux"]
+program = "/bin/bash"
+
+[window]
+# startup_mode = "Maximized"
+decorations = "full"
+dynamic_padding = true
+title = ""
+resize_increments = true
+
+[window.position]
+x = 500
+y = 200
+
+[window.dimensions]
+columns = 190
+lines = 54
+

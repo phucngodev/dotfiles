@@ -14,12 +14,11 @@ paq({
     'windwp/nvim-autopairs',
     'mattn/emmet-vim',
     'uarun/vim-protobuf',
-    'hashivim/vim-terraform',
     'neovim/nvim-lspconfig',
     'nvim-focus/focus.nvim',
     'nvim-tree/nvim-tree.lua',
     'nvim-tree/nvim-web-devicons',
-    'sainnhe/gruvbox-material',
+    'phucngodev/edge',
     'mattn/vim-goimports',
     'mattn/vim-goaddtags',
     'junegunn/vim-easy-align',
@@ -36,7 +35,7 @@ paq({
     'christoomey/vim-tmux-navigator',
     'bluz71/nvim-linefly',
     {'ibhagwan/fzf-lua', branch = 'main'},
-    {'prettier/vim-prettier', branch='master',  build = 'npm install --frozen-lockfile --production'}
+    {'prettier/vim-prettier', branch='master',  build = 'npm install --frozen-lockfile --production --legacy-peer-deps'}
 })
 
 if installed then
@@ -70,8 +69,8 @@ vim.opt.backspace                           = "indent,eol,start"
 vim.opt.clipboard                           = "unnamedplus"
 vim.opt.laststatus                          = 3
 vim.g.mapleader                             = "\\"
--- vim.opt.list                                = true
--- vim.opt.listchars:append{tab                = "→ ", space = "⋅"}
+vim.opt.list                                = true
+vim.opt.listchars:append{tab                = "→ ", space = "⋅"}
 vim.opt.fillchars                           = { vert = "|", }
 vim.g.omni_sql_no_default_maps              = 1
 vim.g['prettier#autoformat']                = true
@@ -85,13 +84,12 @@ vim.api.nvim_create_autocmd('FileType', {
   command = 'EmmetInstall'
 })
 
-vim.g.gruvbox_material_disable_italic_comment = true
-vim.g.gruvbox_material_better_performance     = true
-vim.g.gruvbox_material_background             = 'soft'
-vim.opt.background                            = "dark"
-vim.cmd("colorscheme gruvbox-material")
-vim.g.linefly_options = { with_attached_clients = false }
+vim.g.edge_disable_italic_comment           = true
+vim.g.edge_better_performance               = true
+vim.opt.background                          = "light"
+vim.cmd("colorscheme edge")
 
+vim.g.linefly_options = { with_attached_clients = false }
 vim.api.nvim_create_augroup('setIndent', { clear = true })
 vim.api.nvim_create_autocmd('Filetype', {
   group = 'setIndent',
@@ -101,7 +99,7 @@ vim.api.nvim_create_autocmd('Filetype', {
 
 require('nvim-autopairs').setup{}
 require('Comment').setup()
-require("focus").setup()
+require("focus").setup({ ui = { signcolumn = false } })
 
 local ignore_filetypes = { 'NvimTree' }
 local augroup = vim.api.nvim_create_augroup('FocusDisable', { clear = true })
@@ -122,16 +120,17 @@ require("nvim-tree").setup({
         root_folder_label = false,
         icons = {
             show  = {
-                git = false
+                git = false,
+                folder_arrow = false,
             }
         },
     },
     view = {
         side = 'left',
-        signcolumn = 'no',
     },
     filters = {
-        custom = { '^.git$', '^node_modules$', '^.DS_Store$' ,'^.next$', '^__pycache__$' }
+        exclude = { '.env' },
+        custom = { '^.git$', '^node_modules$', '^.DS_Store$' ,'^.next$', '^__pycache__$', '^.svelte-kit$' },
     }
 })
 
@@ -268,3 +267,4 @@ vim.keymap.set('n', '<c-s>', "<cmd>lua require('fzf-lua').grep_project()<CR>", o
 vim.keymap.set('n', '<Leader>s', "<cmd>lua require('fzf-lua').lgrep_curbuf()<CR>", opts)
 vim.keymap.set('v', 'ga', '<Plug>(EasyAlign)', opts)
 vim.keymap.set('n', 'ga', '<Plug>(EasyAlign)', opts)
+

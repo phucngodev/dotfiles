@@ -8,6 +8,9 @@ truncation_length = 1
 [cmd_duration]
 disabled=true
 
+[golang]
+disabled=true
+
 [php]
 disabled=true
 
