@@ -30,10 +30,10 @@ text = "0xbe7e05"
 cursor = "0xbe7e05"
 
 [font]
-size = 19
+size = 20
 
 [font.normal]
-family = "GoMono Nerd Font"
+family = "MonaspiceNe Nerd Font"
 
 [font.offset]
 x = 0
@@ -70,6 +70,6 @@ x = 500
 y = 200
 
 [window.dimensions]
-columns = 190
-lines = 54
+columns = 175
+lines = 50
 
