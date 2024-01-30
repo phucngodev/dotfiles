@@ -33,6 +33,7 @@ paq({
     'hrsh7th/vim-vsnip',
     'rafamadriz/friendly-snippets',
     'christoomey/vim-tmux-navigator',
+    'akinsho/bufferline.nvim',
     'bluz71/nvim-linefly',
     {'ibhagwan/fzf-lua', branch = 'main'},
     {'prettier/vim-prettier', branch='master',  build = 'npm install --frozen-lockfile --production --legacy-peer-deps'}
@@ -99,6 +100,14 @@ vim.api.nvim_create_autocmd('Filetype', {
 
 require('nvim-autopairs').setup{}
 require('Comment').setup()
+require("bufferline").setup({
+    options = {
+        always_show_bufferline = false,
+        numbers = function(opts)
+          return opts.id
+        end,
+    },
+})
 require("focus").setup({ ui = { signcolumn = false } })
 
 local ignore_filetypes = { 'NvimTree' }
