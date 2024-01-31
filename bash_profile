@@ -15,7 +15,7 @@ export GOCACHE=$GOPATH/go-build
 export GOBIN=$GOPATH/bin
 export PATH=${PATH}:$GOPATH/bin
 export PATH=/Volumes/Data/Projects/npm-global/bin:$PATH
-export PATH=/opt/homebrew/Cellar/postgresql\@16/16.1_1/bin:$PATH
+export PATH=/opt/homebrew/Cellar/postgresql\@16/16.1_3/bin:$PATH
 
 eval "$(starship init bash)"
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash

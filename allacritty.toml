@@ -33,15 +33,15 @@ cursor = "0xbe7e05"
 size = 20
 
 [font.normal]
-family = "MonaspiceNe Nerd Font"
+family = "JetBrainsMonoNL Nerd Font"
 
 [font.offset]
 x = 0
-y = 4
+y = 7
 
 [font.glyph_offset]
 x = 0
-y = 2
+y = 3
 
 [[keyboard.bindings]]
 action = "ToggleMaximized"
@@ -71,5 +71,5 @@ y = 200
 
 [window.dimensions]
 columns = 175
-lines = 50
+lines = 43
 
