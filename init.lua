@@ -35,6 +35,7 @@ paq({
     'christoomey/vim-tmux-navigator',
     'akinsho/bufferline.nvim',
     'bluz71/nvim-linefly',
+    'Exafunction/codeium.nvim',
     {'ibhagwan/fzf-lua', branch = 'main'},
     {'prettier/vim-prettier', branch='master',  build = 'npm install --frozen-lockfile --production --legacy-peer-deps'}
 })
@@ -109,6 +110,7 @@ require("bufferline").setup({
     },
 })
 require("focus").setup({ ui = { signcolumn = false } })
+require("codeium").setup({})
 
 local ignore_filetypes = { 'NvimTree' }
 local augroup = vim.api.nvim_create_augroup('FocusDisable', { clear = true })
@@ -206,7 +208,12 @@ local lspkind = require('lspkind')
 local cmp = require'cmp'
 cmp.setup({
     formatting = {
-        format = lspkind.cmp_format(),
+        format = lspkind.cmp_format({
+            mode = "symbol",
+            maxwidth = 50,
+            ellipsis_char = '...',
+            symbol_map = { Codeium = "", }
+        }),
     },
     window = {
         completion = {
@@ -234,6 +241,7 @@ cmp.setup({
     sources = cmp.config.sources({
         { name = 'nvim_lsp' },
         { name = 'vsnip' },
+        { name = 'codeium' },
     }, {
         { name = 'buffer' },
     }),
