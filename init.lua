@@ -200,6 +200,7 @@ vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
 require("typescript-tools").setup({
     settings = {
         separate_diagnostic_server = false,
+        code_lens = "off",
     }
 })
 
@@ -238,8 +239,8 @@ cmp.setup({
         ['<CR>'] = cmp.mapping.confirm({ select = true }),
     }),
     sources = cmp.config.sources({
-        { name = 'nvim_lsp' },
         { name = 'vsnip' },
+        { name = 'nvim_lsp' },
         { name = 'codeium' },
     }, {
         { name = 'buffer' },
@@ -249,21 +250,28 @@ cmp.setup({
 local nvim_lsp = require('lspconfig')
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 nvim_lsp['gopls'].setup{
-  cmd = {'gopls'},
-  capabilities = capabilities,
-  init_options = {
-    usePlaceholders = true,
-    directoryFilters = {"-**/node_modules", "-web"},
-  }
+    root_dir = function()
+        return vim.loop.cwd()
+    end,
+    cmd = {'gopls'},
+    capabilities = capabilities,
+    init_options = {
+        usePlaceholders = true,
+        directoryFilters = {"-**/node_modules", "-web"},
+    }
 }
 
 nvim_lsp.tailwindcss.setup {
+    root_dir = function()
+        return vim.loop.cwd()
+    end,
     capabilities = capabilities,
     filetypes = { "html", "javascriptreact", "typescriptreact", "gohtml", "svelte" }
 }
 
 nvim_lsp.svelte.setup {
     capabilities = capabilities,
+    root_pattern = {"svelte.config.js"},
 }
 
 -- custom mapping
