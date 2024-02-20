@@ -30,14 +30,14 @@ text = "0xbe7e05"
 cursor = "0xbe7e05"
 
 [font]
-size = 20
+size = 16.5
 
 [font.normal]
 family = "JetBrainsMonoNL Nerd Font"
 
 [font.offset]
 x = 0
-y = 7
+y = 6
 
 [font.glyph_offset]
 x = 0
@@ -55,7 +55,7 @@ history = 10000
 save_to_clipboard = true
 
 [shell]
-args = ["-l", "-c", "tux attach || tmux"]
+args = ["-l", "-c", "tmux attach || tmux"]
 program = "/bin/bash"
 
 [window]
@@ -66,10 +66,10 @@ title = ""
 resize_increments = true
 
 [window.position]
-x = 500
-y = 200
+x = 350
+y = 170
 
 [window.dimensions]
-columns = 175
-lines = 43
+columns = 165
+lines = 39
 

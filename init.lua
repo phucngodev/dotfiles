@@ -58,7 +58,6 @@ vim.wo.wrap                                 = false
 vim.opt.ignorecase                          = true
 vim.g.terraform_align                       = true
 vim.g.terraform_fmt_on_save                 = true
-vim.g.do_filetype_lua                       = false
 vim.g.loaded_netrw                          = false
 vim.g.loaded_netrwPlugin                    = false
 vim.opt.tabstop                             = 4
