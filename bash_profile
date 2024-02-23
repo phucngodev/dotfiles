@@ -5,6 +5,7 @@ export BASH_SILENCE_DEPRECATION_WARNING=1
 export EDITOR=nvim
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
 export FZF_DEFAULT_COMMAND='rg --files --hidden --glob=!.git/* --glob=!vendor/* --glob=!node_modules/*'
+export HOMEBREW_NO_ANALYTICS=1
 
 export PATH=/opt/homebrew/bin:$PATH
 export PATH=/usr/local/bin:$PATH
@@ -15,7 +16,7 @@ export GOCACHE=$GOPATH/go-build
 export GOBIN=$GOPATH/bin
 export PATH=${PATH}:$GOPATH/bin
 export PATH=/Volumes/Data/Projects/npm-global/bin:$PATH
-export PATH=/opt/homebrew/Cellar/postgresql\@16/16.1_3/bin:$PATH
+export PATH=/opt/homebrew/Cellar/postgresql\@16/16.2/bin:$PATH
 
 eval "$(starship init bash)"
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash

@@ -1,47 +1,47 @@
 live_config_reload = true
-working_directory = "/Users/phuc/Projects/"
-
-[colors.bright]
-black = "0x4b505b"
-blue = "0x5079be"
-cyan = "0x3a8b84"
-green = "0x608e32"
-magenta = "0xb05ccc"
-red = "0xd05858"
-white = "0xfafafa"
-yellow = "0xbe7e05"
-
-[colors.normal]
-black = "0x4b505b"
-blue = "0x5079be"
-cyan = "0x3a8b84"
-green = "0x608e32"
-magenta = "0xb05ccc"
-red = "0xd05858"
-white = "0xfafafa"
-yellow = "0xbe7e05"
+working_directory = "/Volumes/Data/Projects/"
 
 [colors.primary]
-background = "0xfafafa"
-foreground = "0x4b505b"
+background = '#282828'
+foreground = '#dfbf8e'
+
+[colors.normal]
+black   = '#665c54'
+red     = '#ea6962'
+green   = '#a9b665'
+yellow  = '#e78a4e'
+blue    = '#7daea3'
+magenta = '#d3869b'
+cyan    = '#89b482'
+white   = '#dfbf8e'
+
+[colors.bright]
+black   = '#928374'
+red     = '#ea6962'
+green   = '#a9b665'
+yellow  = '#e3a84e'
+blue    = '#7daea3'
+magenta = '#d3869b'
+cyan    = '#89b482'
+white   = '#dfbf8e'
 
 [colors.cursor]
 text = "0xbe7e05"
 cursor = "0xbe7e05"
 
 [font]
-size = 16.5
+size = 17
 
 [font.normal]
 family = "JetBrainsMonoNL Nerd Font"
 
 [font.offset]
 x = 0
-y = 6
+y = 7
 
 [font.glyph_offset]
 x = 0
-y = 3
+y = 4
 
 [[keyboard.bindings]]
 action = "ToggleMaximized"
@@ -66,10 +66,10 @@ title = ""
 resize_increments = true
 
 [window.position]
-x = 350
+x = 400
 y = 170
 
 [window.dimensions]
-columns = 165
-lines = 39
+columns = 160
+lines = 37
 
