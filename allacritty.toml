@@ -1,5 +1,5 @@
 live_config_reload = true
-working_directory = "/Volumes/Data/Projects/"
+working_directory = "/Users/phuc/Projects/"
 
 [colors.primary]
 background = '#282828'
@@ -70,6 +70,6 @@ x = 400
 y = 170
 
 [window.dimensions]
-columns = 160
+columns = 155
 lines = 37
 
