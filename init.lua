@@ -18,7 +18,7 @@ paq({
     'nvim-focus/focus.nvim',
     'nvim-tree/nvim-tree.lua',
     'nvim-tree/nvim-web-devicons',
-    'sainnhe/gruvbox-material',
+    'phucngodev/edge',
     'mattn/vim-goimports',
     'mattn/vim-goaddtags',
     'junegunn/vim-easy-align',
@@ -85,10 +85,10 @@ vim.api.nvim_create_autocmd('FileType', {
   command = 'EmmetInstall'
 })
 
-vim.g.gruvbox_material_disable_italic_comment = true
-vim.g.gruvbox_material_better_performance     = true
-vim.opt.background                      = "dark"
-vim.cmd 'colorscheme gruvbox-material'
+vim.g.edge_disable_italic_comment           = true
+vim.g.edge_better_performance               = true
+vim.opt.background                          = "light"
+vim.cmd 'colorscheme edge'
 
 vim.g.linefly_options = { with_attached_clients = false }
 vim.api.nvim_create_augroup('setIndent', { clear = true })
