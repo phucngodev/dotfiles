@@ -1,0 +1,9 @@
+[user]
+	name = Phuc
+	email = "phuc@phucngo.dev"
+[init]
+	defaultBranch = main
+[pull]
+	ff = only
+[core]
+	excludesfile = /Users/phuc/.global_ignore
