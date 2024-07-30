@@ -17,7 +17,7 @@ paq({
     'christoomey/vim-tmux-navigator',
     'nvim-tree/nvim-tree.lua',
     'nvim-tree/nvim-web-devicons',
-    'sainnhe/everforest',
+    'sainnhe/gruvbox-material',
     'mattn/vim-goaddtags',
     'mattn/vim-goimports',
     'mattn/vim-goimpl',
@@ -82,10 +82,11 @@ vim.api.nvim_create_autocmd('FileType', {
   command = 'EmmetInstall'
 })
 
-vim.g.everforest_disable_italic_comment = true
-vim.g.everforest_better_performance     = true
-vim.opt.background                      = 'dark'
-vim.cmd 'colorscheme everforest'
+vim.opt.background                            = 'dark'
+vim.g.gruvbox_material_background             = 'soft'
+vim.g.gruvbox_material_better_performance     = 1
+vim.g.gruvbox_material_disable_italic_comment = true
+vim.cmd 'colorscheme gruvbox-material'
 
 vim.api.nvim_create_augroup('setIndent', { clear = true })
 vim.diagnostic.config { float = { border = 'rounded' }, }
