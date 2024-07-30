@@ -84,7 +84,7 @@ vim.api.nvim_create_autocmd('FileType', {
 
 vim.g.everforest_disable_italic_comment = true
 vim.g.everforest_better_performance     = true
-vim.opt.background                      = 'light'
+vim.opt.background                      = 'dark'
 vim.cmd 'colorscheme everforest'
 
 vim.api.nvim_create_augroup('setIndent', { clear = true })
@@ -237,8 +237,8 @@ vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
 vim.keymap.set('n', '<space>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
 vim.keymap.set('n', '<space>ca', '<cmd> lua vim.lsp.buf.code_action()<CR>', opts)
 vim.keymap.set('n', '<C-n>', ':NvimTreeToggle<CR>', opts)
-vim.keymap.set('n', '<c-f>', "<cmd>lua require('fzf-lua').files()<CR>", opts)
-vim.keymap.set('n', '<c-p>', "<cmd>lua require('fzf-lua').buffers()<CR>", opts)
+vim.keymap.set('n', '<c-p>', "<cmd>lua require('fzf-lua').files()<CR>", opts)
+vim.keymap.set('n', '<c-f>', "<cmd>lua require('fzf-lua').buffers()<CR>", opts)
 vim.keymap.set('n', '<c-g>', "<cmd>lua require('fzf-lua').grep_project()<CR>", opts)
 vim.keymap.set('n', '<c-s>', "<cmd>lua require('fzf-lua').lgrep_curbuf()<CR>", opts)
 vim.keymap.set('v', 'ga', '<Plug>(EasyAlign)', opts)
