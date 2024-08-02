@@ -60,7 +60,7 @@ program = "/bin/bash"
 
 [window]
 # startup_mode = "Maximized"
-# decorations_theme_variant = "dark"
+decorations_theme_variant = "dark"
 dynamic_padding = true
 resize_increments = true
 title = ""
