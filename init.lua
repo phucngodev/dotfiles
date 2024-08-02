@@ -68,6 +68,8 @@ vim.opt.completeopt             = 'menu,menuone,noselect'
 vim.opt.backspace               = 'indent,eol,start'
 vim.opt.clipboard               = 'unnamedplus'
 vim.opt.laststatus              = 3
+vim.opt.list                                = true
+vim.opt.listchars:append{tab                = "→ ", space = "⋅"}
 vim.opt.fillchars               = { vert = '|', }
 vim.g.mapleader                 = '\\'
 vim.g.omni_sql_no_default_maps  = 1
