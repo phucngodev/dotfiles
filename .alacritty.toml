@@ -30,7 +30,7 @@ text   = "0xbe7e05"
 cursor = "0xF9A825"
 
 [font]
-size = 18
+size = 20
 
 [font.normal]
 family = "Consolas Nerd Font"
@@ -74,6 +74,6 @@ x = 700
 y = 150
 
 [window.dimensions]
-columns = 135
-lines = 39
+columns = 170
+lines = 49
 

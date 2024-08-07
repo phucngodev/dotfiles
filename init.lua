@@ -70,7 +70,7 @@ vim.opt.clipboard               = 'unnamedplus'
 vim.opt.laststatus              = 3
 vim.opt.list                                = true
 vim.opt.listchars:append{tab                = "→ ", space = "⋅"}
-vim.opt.fillchars               = { vert = '|', }
+-- vim.opt.fillchars               = { vert = '|', }
 vim.g.mapleader                 = '\\'
 vim.g.omni_sql_no_default_maps  = 1
 vim.g.user_emmet_install_global = 0
