@@ -3,7 +3,7 @@ echo "===============Install homebrew and software================="
 
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 
-brew install tmux neovim fd ripgrep btop starship fzf glow go nodejs postgresql@16 protobuf colima docker docker-compose kubectl mysql
+brew install tmux neovim fd ripgrep btop starship fzf glow go nodejs postgresql@16 protobuf colima docker docker-compose kubectl mysql ansible rig
 
 echo "=====================Copy config files======================="
 
