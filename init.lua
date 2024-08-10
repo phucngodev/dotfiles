@@ -14,7 +14,6 @@ paq({
     'mattn/emmet-vim',
     'junegunn/vim-easy-align',
     'nvim-focus/focus.nvim',
-    'christoomey/vim-tmux-navigator',
     'nvim-tree/nvim-tree.lua',
     'nvim-tree/nvim-web-devicons',
     'sainnhe/gruvbox-material',
@@ -70,7 +69,7 @@ vim.opt.clipboard               = 'unnamedplus'
 vim.opt.laststatus              = 3
 vim.opt.list                                = true
 vim.opt.listchars:append{tab                = "→ ", space = "⋅"}
--- vim.opt.fillchars               = { vert = '|', }
+vim.opt.fillchars               = { vert = '|', }
 vim.g.mapleader                 = '\\'
 vim.g.omni_sql_no_default_maps  = 1
 vim.g.user_emmet_install_global = 0
@@ -232,10 +231,6 @@ cmp.setup({
 
 -- custom mapping
 local opts = { noremap=true, silent=true }
-vim.keymap.set('n', '<C-j>', '<C-W>j', opts)
-vim.keymap.set('n', '<C-k>', '<C-W>k', opts)
-vim.keymap.set('n', '<C-h>', '<C-W>h', opts)
-vim.keymap.set('n', '<C-l>', '<C-W>l', opts)
 vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
 vim.keymap.set('n', '<space>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
 vim.keymap.set('n', '<space>ca', '<cmd> lua vim.lsp.buf.code_action()<CR>', opts)

@@ -60,10 +60,6 @@ let g:gruvbox_material_better_performance     = 1
 let g:gruvbox_material_disable_italic_comment = 1
 colorscheme gruvbox-material
 
-map <C-j> <C-W>j
-map <C-k> <C-W>k
-map <C-h> <C-W>h
-map <C-l> <C-W>l
 nnoremap <C-n> :NERDTreeToggle<CR>
 nnoremap <C-p> :Files<CR>
 nnoremap <C-s> :Rg<CR>
