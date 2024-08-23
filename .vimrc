@@ -52,12 +52,22 @@ let g:NERDTreeDirArrowExpandable = ''
 let g:NERDTreeDirArrowCollapsible = ''
 let NERDTreeMinimalUI=1
 let NERDTreeShowHidden=0
+let g:DevIconsEnableFoldersOpenClose = 1
+let g:DevIconsEnableFoldersOpenClose = 1
 let NERDTreeIgnore = ['node_modules']
+augroup nerdtreehidecwd
+    autocmd!
+    autocmd FileType nerdtree setlocal conceallevel=3 | syntax match NERDTreeDirSlash #/$# containedin=NERDTreeDir conceal contained
+augroup end
 
 let g:edge_disable_italic_comment = 1
 let g:edge_better_performance     = 1
 colorscheme edge
 
+nmap <silent> <c-s-k> <C-W>k
+nmap <silent> <c-s-j> <C-W>j
+nmap <silent> <c-s-h> <C-W>h
+nmap <silent> <c-s-l> <C-W>l
 nnoremap <C-n> :NERDTreeToggle<CR>
 nnoremap <C-p> :Files<CR>
 nnoremap <C-s> :Rg<CR>
