@@ -17,7 +17,7 @@ paq({
     'christoomey/vim-tmux-navigator',
     'nvim-tree/nvim-tree.lua',
     'nvim-tree/nvim-web-devicons',
-    'sainnhe/gruvbox-material',
+    'phucngodev/edge',
     'mattn/vim-goaddtags',
     'mattn/vim-goimports',
     'mattn/vim-goimpl',
@@ -68,8 +68,8 @@ vim.opt.completeopt             = 'menu,menuone,noselect'
 vim.opt.backspace               = 'indent,eol,start'
 vim.opt.clipboard               = 'unnamedplus'
 vim.opt.laststatus              = 3
-vim.opt.list                                = true
-vim.opt.listchars:append{tab                = "→ ", space = "⋅"}
+vim.opt.list                    = true
+vim.opt.listchars:append{tab    = "→ ", space = "⋅"}
 -- vim.opt.fillchars               = { vert = '|', }
 vim.g.mapleader                 = '\\'
 vim.g.omni_sql_no_default_maps  = 1
@@ -84,11 +84,10 @@ vim.api.nvim_create_autocmd('FileType', {
   command = 'EmmetInstall'
 })
 
-vim.opt.background                            = 'dark'
-vim.g.gruvbox_material_background             = 'soft'
-vim.g.gruvbox_material_better_performance     = 1
-vim.g.gruvbox_material_disable_italic_comment = true
-vim.cmd 'colorscheme gruvbox-material'
+vim.g.edge_disable_italic_comment = true
+vim.g.edge_better_performance     = true
+vim.opt.background                      = 'light'
+vim.cmd 'colorscheme edge'
 
 vim.api.nvim_create_augroup('setIndent', { clear = true })
 vim.diagnostic.config { float = { border = 'rounded' }, }

@@ -7,7 +7,7 @@ endif
 call plug#begin('~/.vim/plugged')
   Plug 'ryanoasis/vim-devicons'
   Plug 'preservim/nerdtree'
-  Plug 'sainnhe/gruvbox-material'
+  Plug 'phucngodev/edge'
   Plug 'tpope/vim-commentary'
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
@@ -54,11 +54,9 @@ let NERDTreeMinimalUI=1
 let NERDTreeShowHidden=0
 let NERDTreeIgnore = ['node_modules']
 
-set background=dark
-let g:gruvbox_material_background             = 'soft'
-let g:gruvbox_material_better_performance     = 1
-let g:gruvbox_material_disable_italic_comment = 1
-colorscheme gruvbox-material
+let g:edge_disable_italic_comment = 1
+let g:edge_better_performance     = 1
+colorscheme edge
 
 nnoremap <C-n> :NERDTreeToggle<CR>
 nnoremap <C-p> :Files<CR>

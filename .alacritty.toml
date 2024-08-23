@@ -2,28 +2,28 @@ live_config_reload = true
 working_directory = "/Users/phuc/Projects/"
 
 [colors.primary]
-background = '0x32302f'
-foreground = '0xd4be98'
+background = "0xfafafa"
+foreground = "0x4b505b"
 
 [colors.normal]
-black   = '0x45403d'
-red     = '0xea6962'
-green   = '0xa9b665'
-yellow  = '0xd8a657'
-blue    = '0x7daea3'
-magenta = '0xd3869b'
-cyan    = '0x89b482'
-white   = '0xd4be98'
+black   = "0x4b505b"
+red     = "0xd05858"
+green   = "0x608e32"
+yellow  = "0xbe7e05"
+blue    = "0x5079be"
+magenta = "0xb05ccc"
+cyan    = "0x3a8b84"
+white   = "0xfafafa"
 
 [colors.bright]
-black   = '0x45403d'
-red     = '0xea6962'
-green   = '0xa9b665'
-yellow  = '0xd8a657'
-blue    = '0x7daea3'
-magenta = '0xd3869b'
-cyan    = '0x89b482'
-white   = '0xd4be98'
+black   = "0x4b505b"
+red     = "0xd05858"
+green   = "0x608e32"
+yellow  = "0xbe7e05"
+blue    = "0x5079be"
+magenta = "0xb05ccc"
+cyan    = "0x3a8b84"
+white   = "0xfafafa"
 
 [colors.cursor]
 text   = "0xbe7e05"
@@ -37,11 +37,11 @@ family = "Consolas Nerd Font"
 
 [font.offset]
 x = 1
-y = 8
+y = 4
 
 [font.glyph_offset]
 x = 1
-y = 4
+y = 2
 
 [[keyboard.bindings]]
 action = "ToggleMaximized"
@@ -60,7 +60,6 @@ program = "/bin/bash"
 
 [window]
 # startup_mode = "Maximized"
-decorations_theme_variant = "dark"
 dynamic_padding = true
 resize_increments = true
 title = ""
@@ -74,6 +73,6 @@ x = 700
 y = 150
 
 [window.dimensions]
-columns = 170
-lines = 49
+columns = 155
+lines = 47
 
