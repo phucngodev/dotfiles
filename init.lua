@@ -22,7 +22,6 @@ paq({
     'mattn/vim-goimports',
     'mattn/vim-goimpl',
     'nvim-treesitter/nvim-treesitter',
-    'nvim-lua/plenary.nvim',
     'pmizio/typescript-tools.nvim',
     'neovim/nvim-lspconfig',
     'onsails/lspkind.nvim',
@@ -33,6 +32,12 @@ paq({
     'hrsh7th/vim-vsnip',
     'rafamadriz/friendly-snippets',
     'bluz71/nvim-linefly',
+    'stevearc/dressing.nvim',
+    'nvim-lua/plenary.nvim',
+    'MunifTanjim/nui.nvim',
+    'HakonHarnes/img-clip.nvim',
+    "MeanderingProgrammer/render-markdown.nvim",
+    'yetone/avante.nvim',
     {'ibhagwan/fzf-lua', branch = 'main'},
     {'prettier/vim-prettier', branch='master',  build = 'npm install --frozen-lockfile --production'},
 })
@@ -95,6 +100,47 @@ vim.api.nvim_create_autocmd('Filetype', {
   group = 'setIndent',
   pattern = { 'html', 'css', 'scss', 'svelte', 'javascript' },
   command = 'setlocal shiftwidth=2 tabstop=2'
+})
+
+require('img-clip').setup ({
+    event = "VeryLazy",
+    opts = {
+      -- recommended settings
+      default = {
+        embed_image_as_base64 = false,
+        prompt_for_file_name = false,
+        drag_and_drop = {
+          insert_mode = true,
+        },
+        -- required for Windows users
+        use_absolute_path = true,
+      },
+    },
+})
+
+require('render-markdown').setup ({
+    opts = {
+      file_types = { "markdown", "Avante" },
+    },
+    ft = { "markdown", "Avante" },
+})
+require('avante').setup ({
+    event = "VeryLazy",
+    lazy = false,
+    opts = {
+        provider = "claude", -- Recommend using Claude
+        claude = {
+            endpoint = "https://api.anthropic.com",
+            model = "claude-3-5-sonnet-20240620",
+            temperature = 0,
+            max_tokens = 4096,
+        },
+    },
+    keys = {
+        { "<leader>aa", function() require("avante.api").ask() end, desc = "avante: ask", mode = { "n", "v" } },
+        { "<leader>ar", function() require("avante.api").refresh() end, desc = "avante: refresh" },
+        { "<leader>ae", function() require("avante.api").edit() end, desc = "avante: edit", mode = "v" },
+    },
 })
 
 local signs = { Error = '󰅙', Info = '󰋼', Hint = '󰌵', Warn = '' }

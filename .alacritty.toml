@@ -33,7 +33,7 @@ cursor = "0xF9A825"
 size = 20
 
 [font.normal]
-family = "Consolas Nerd Font"
+family = "Consolas 7NF"
 
 [font.offset]
 x = 1
@@ -74,5 +74,5 @@ y = 150
 
 [window.dimensions]
 columns = 155
-lines = 47
+lines = 45
 
