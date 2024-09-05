@@ -6,4 +6,5 @@
 [pull]
 	ff = only
 [core]
+    pager = delta
 	excludesfile = /Users/phuc/.global_ignore
