@@ -30,19 +30,18 @@ text   = "0xbe7e05"
 cursor = "0xF9A825"
 
 [font]
-size = 20
+size = 18
 
 [font.normal]
-# family = "Consolas Nerd Font"
 family = "Consolas 7NF"
 
 [font.offset]
 x = 1
-y = 4
+y = 5
 
 [font.glyph_offset]
 x = 1
-y = 2
+y = 3
 
 [[keyboard.bindings]]
 action = "ToggleMaximized"
