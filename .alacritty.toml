@@ -30,18 +30,19 @@ text   = "0xbe7e05"
 cursor = "0xF9A825"
 
 [font]
-size = 18
+size = 18.3
 
 [font.normal]
+# family = "Consolas Nerd Font"
 family = "Consolas 7NF"
 
 [font.offset]
-x = 1
-y = 5
+x = 0
+y = 4
 
 [font.glyph_offset]
-x = 1
-y = 3
+x = 0
+y = 2
 
 [[keyboard.bindings]]
 action = "ToggleMaximized"
@@ -73,6 +74,6 @@ x = 700
 y = 150
 
 [window.dimensions]
-columns = 155
-lines = 45
+columns = 170
+lines = 49
 
