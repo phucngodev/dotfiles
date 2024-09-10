@@ -32,12 +32,8 @@ paq({
     'hrsh7th/vim-vsnip',
     'rafamadriz/friendly-snippets',
     'bluz71/nvim-linefly',
-    -- 'stevearc/dressing.nvim',
     'nvim-lua/plenary.nvim',
-    -- 'MunifTanjim/nui.nvim',
-    -- 'HakonHarnes/img-clip.nvim',
     "MeanderingProgrammer/render-markdown.nvim",
-    -- {'yetone/avante.nvim',  branch =  'main', build = ':AvanteBuild'},
     {'ibhagwan/fzf-lua', branch = 'main'},
     {'prettier/vim-prettier', branch='master',  build = 'npm install --frozen-lockfile --production'},
 })
@@ -71,12 +67,10 @@ vim.opt.syntax                  = 'on'
 vim.opt.encoding                = 'utf-8'
 vim.opt.completeopt             = 'menu,menuone,noselect'
 vim.opt.backspace               = 'indent,eol,start'
--- vim.opt.clipboard               = 'unnamedplus'
 vim.opt.clipboard:append { 'unnamed', 'unnamedplus' }
 vim.opt.laststatus              = 3
-vim.opt.list                    = true
-vim.opt.listchars:append{tab    = "→ ", space = "⋅"}
--- vim.opt.fillchars               = { vert = '|', }
+-- vim.opt.list                    = true
+-- vim.opt.listchars:append{tab    = "→ ", space = "⋅"}
 vim.g.mapleader                 = '\\'
 vim.g.omni_sql_no_default_maps  = 1
 vim.g.user_emmet_install_global = 0
@@ -92,7 +86,7 @@ vim.api.nvim_create_autocmd('FileType', {
 
 vim.g.edge_disable_italic_comment = true
 vim.g.edge_better_performance     = true
-vim.opt.background                      = 'light'
+vim.opt.background                = 'light'
 vim.cmd 'colorscheme edge'
 
 vim.api.nvim_create_augroup('setIndent', { clear = true })
@@ -116,73 +110,12 @@ require("nvim-web-devicons").setup {
     },
 }
 
--- require('img-clip').setup ({
---     event = "VeryLazy",
---     opts = {
---       -- recommended settings
---       default = {
---         embed_image_as_base64 = false,
---         prompt_for_file_name = false,
---         drag_and_drop = {
---           insert_mode = true,
---         },
---         -- required for Windows users
---         use_absolute_path = true,
---       },
---     },
--- })
-
 require('render-markdown').setup ({
     opts = {
       file_types = { "markdown", "Avante" },
     },
     ft = { "markdown", "Avante" },
 })
--- require('avante_lib').load()
--- require('avante').setup ({
---     opts = {
---         -- provider = "claude", -- Recommend using Claude
---         -- claude = {
---         --     endpoint = "https://api.anthropic.com",
---         --     model = "claude-3-5-sonnet-20240620",
---         --     temperature = 0,
---         --     max_tokens = 4096,
---         -- },
---
---         -- provider = "ollama",
---         -- vendors = {
---         --     ["ollama"] = {
---         --         ["local"] = true,
---         --         endpoint = "127.0.0.1:11434/v1",
---         --         model = "llama3.1:latest",
---         --         model = "gemma2:9b-instruct-q5_K_M",
---         --         parse_curl_args = function(opts, code_opts)
---         --             return {
---         --                 url = opts.endpoint .. "/chat/completions",
---         --                 headers = {
---         --                     ["Accept"] = "application/json",
---         --                     ["Content-Type"] = "application/json",
---         --                 },
---         --                 body = {
---         --                     model = opts.model,
---         --                     messages = require("avante.providers").copilot.parse_message(code_opts), -- you can make your own message, but this is very advanced
---         --                     max_tokens = 2048,
---         --                     stream = true,
---         --                 },
---         --             }
---         --         end,
---         --         parse_response_data = function(data_stream, event_state, opts)
---         --             require("avante.providers").openai.parse_response(data_stream, event_state, opts)
---         --         end,
---         --     },
---         -- },
---     },
---     keys = {
---         { "<leader>aa", function() require("avante.api").ask() end, desc = "avante: ask", mode = { "n", "v" } },
---         { "<leader>ar", function() require("avante.api").refresh() end, desc = "avante: refresh" },
---         { "<leader>ae", function() require("avante.api").edit() end, desc = "avante: edit", mode = "v" },
---     },
--- })
 
 local signs = { Error = '󰅙', Info = '󰋼', Hint = '󰌵', Warn = '' }
 vim.g.linefly_options = {
