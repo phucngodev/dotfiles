@@ -33,21 +33,11 @@ cursor = "0xF9A825"
 size = 18.3
 
 [font.normal]
-# family = "Consolas Nerd Font"
 family = "Consolas 7NF"
 
 [font.offset]
 x = 0
 y = 4
-
-[font.glyph_offset]
-x = 0
-y = 2
-
-[[keyboard.bindings]]
-action = "ToggleMaximized"
-key = "Return"
-mods = "Alt"
 
 [scrolling]
 history = 10000
