@@ -44,7 +44,7 @@ if installed then
 end
 
 vim.opt.number                  = true
-vim.opt.relativenumber          = true
+-- vim.opt.relativenumber          = true
 vim.opt.hidden                  = true
 vim.opt.expandtab               = true
 vim.opt.autoindent              = true
