@@ -33,7 +33,11 @@ paq({
     'rafamadriz/friendly-snippets',
     'bluz71/nvim-linefly',
     'nvim-lua/plenary.nvim',
-    "MeanderingProgrammer/render-markdown.nvim",
+    'MeanderingProgrammer/render-markdown.nvim',
+    'mfussenegger/nvim-dap',
+    'nvim-neotest/nvim-nio',
+    'rcarriga/nvim-dap-ui',
+    'leoluz/nvim-dap-go',
     {'ibhagwan/fzf-lua', branch = 'main'},
     {'prettier/vim-prettier', branch='master',  build = 'npm install --frozen-lockfile --production'},
 })
@@ -44,7 +48,6 @@ if installed then
 end
 
 vim.opt.number                  = true
--- vim.opt.relativenumber          = true
 vim.opt.hidden                  = true
 vim.opt.expandtab               = true
 vim.opt.autoindent              = true
@@ -249,6 +252,56 @@ cmp.setup({
         { name = 'vsnip' },
     }),
 })
+
+
+--- config debugger.
+require('dap-go').setup {
+    dap_configurations = {
+        {
+          name = "Debug web",
+          type = "go",
+          request = "launch",
+          program = "./cmd/server/main.go",
+          cwd = "${workspaceFolder}",
+          buildFlags = "-tags=dev",
+        },
+    },
+}
+
+local dap, dapui = require("dap"),require("dapui")
+dapui.setup({
+    controls = {
+        element = "repl",
+        enabled = true,
+    }
+})
+
+dap.listeners.before.attach.dapui_config = function()
+  dapui.open()
+end
+dap.listeners.before.launch.dapui_config = function()
+  dapui.open()
+end
+dap.listeners.before.event_terminated.dapui_config = function()
+  dapui.close()
+end
+dap.listeners.before.event_exited.dapui_config = function()
+  dapui.close()
+end
+
+
+vim.api.nvim_set_hl(0, 'DapBreakpoint', { ctermbg = 0, fg = '#993939' })
+vim.api.nvim_set_hl(0, 'DapLogPoint', { ctermbg = 0, fg = '#61afef' })
+vim.api.nvim_set_hl(0, 'DapStopped', { ctermbg = 0, fg = '#98c379' })
+vim.fn.sign_define('DapBreakpoint', { text='', texthl='DapBreakpoint', linehl='DapBreakpoint', numhl='DapBreakpoint' })
+vim.fn.sign_define('DapLogPoint', { text='', texthl='DapLogPoint', linehl='DapLogPoint', numhl= 'DapLogPoint' })
+vim.fn.sign_define('DapStopped', { text='', texthl='DapStopped', linehl='DapStopped', numhl= 'DapStopped' })
+
+vim.keymap.set('n', '<F5>', require 'dap'.continue)
+vim.keymap.set('n', '<F6>', require 'dap'.toggle_breakpoint)
+vim.keymap.set('n', '<F8>', require 'dap'.step_over)
+vim.keymap.set('n', '<F7>', require 'dap'.step_out)
+vim.keymap.set('n', '<F9>', require 'dap'.step_into)
 
 -- custom mapping
 local opts = { noremap=true, silent=true }
