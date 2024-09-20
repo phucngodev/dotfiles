@@ -269,12 +269,7 @@ require('dap-go').setup {
 }
 
 local dap, dapui = require("dap"),require("dapui")
-dapui.setup({
-    controls = {
-        element = "repl",
-        enabled = true,
-    }
-})
+dapui.setup()
 
 dap.listeners.before.attach.dapui_config = function()
   dapui.open()
@@ -294,14 +289,13 @@ vim.api.nvim_set_hl(0, 'DapBreakpoint', { ctermbg = 0, fg = '#993939' })
 vim.api.nvim_set_hl(0, 'DapLogPoint', { ctermbg = 0, fg = '#61afef' })
 vim.api.nvim_set_hl(0, 'DapStopped', { ctermbg = 0, fg = '#98c379' })
 vim.fn.sign_define('DapBreakpoint', { text='', texthl='DapBreakpoint', linehl='DapBreakpoint', numhl='DapBreakpoint' })
-vim.fn.sign_define('DapLogPoint', { text='', texthl='DapLogPoint', linehl='DapLogPoint', numhl= 'DapLogPoint' })
 vim.fn.sign_define('DapStopped', { text='', texthl='DapStopped', linehl='DapStopped', numhl= 'DapStopped' })
 
-vim.keymap.set('n', '<F5>', require 'dap'.continue)
-vim.keymap.set('n', '<F6>', require 'dap'.toggle_breakpoint)
-vim.keymap.set('n', '<F8>', require 'dap'.step_over)
-vim.keymap.set('n', '<F7>', require 'dap'.step_out)
-vim.keymap.set('n', '<F9>', require 'dap'.step_into)
+vim.keymap.set('n', '<leader>d', require 'dap'.continue)
+vim.keymap.set('n', '<leader>b', require 'dap'.toggle_breakpoint)
+vim.keymap.set('n', '<leader>c', require 'dap'.step_over)
+vim.keymap.set('n', '<leader>s', require 'dap'.step_into)
+vim.keymap.set('n', '<leader>o', require 'dap'.step_out)
 
 -- custom mapping
 local opts = { noremap=true, silent=true }
