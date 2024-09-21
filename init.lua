@@ -131,7 +131,7 @@ vim.g.linefly_options = {
 require('nvim-autopairs').setup{}
 require("focus").setup({ ui = { signcolumn = false } })
 
-local ignore_filetypes = { 'NvimTree' }
+local ignore_filetypes = { 'NvimTree', 'dapui_stacks', 'dap-repl', 'dapui_breakpoints', 'dapui_scopes' }
 local augroup = vim.api.nvim_create_augroup('FocusDisable', { clear = true })
 vim.api.nvim_create_autocmd('FileType', {
     group = augroup,
@@ -254,22 +254,78 @@ cmp.setup({
 })
 
 
---- config debugger.
-require('dap-go').setup {
-    dap_configurations = {
-        {
+--- config debugger
+local dap, dapui, dapgo = require("dap"),require("dapui"), require("dap-go")
+dapgo.setup({})
+dap.configurations.go = {
+    {
+      name = "Debug",
+      type = "go",
+      request = "launch",
+      program = "${file}",
+      buildFlags = dapgo.build_flags,
+    },
+    {
           name = "Debug web",
           type = "go",
           request = "launch",
           program = "./cmd/server/main.go",
           cwd = "${workspaceFolder}",
           buildFlags = "-tags=dev",
-        },
+    },
+    {
+      name = "Debug test",
+      type = "go",
+      request = "launch",
+      mode = "test",
+      program = "./${relativeFileDirname}",
+      buildFlags = dapgo.build_flags,
+    },
+    {
+      name = "Attach",
+      type = "go",
+      mode = "local",
+      request = "attach",
+      processId = filtered_pick_process,
+      buildFlags = dapgo.build_flags,
+    },
+    {
+      name = "Attach remote",
+      type = "go",
+      mode = "remote",
+      request = "attach",
     },
 }
 
-local dap, dapui = require("dap"),require("dapui")
-dapui.setup()
+dapui.setup({
+    layouts = { {
+        elements = { 
+            {
+            id = "breakpoints",
+            size = 0.25
+          }, {
+            id = "stacks",
+            size = 0.25
+          }, {
+            id = "repl",
+            size = 0.5
+          }, 
+        },
+        position = "left",
+        size = 40
+      },
+        {
+        elements = { 
+          {
+            id = "scopes",
+            size = 1
+          }, 
+        },
+        position = "bottom",
+        size = 10
+      } 
+    },
+})
 
 dap.listeners.before.attach.dapui_config = function()
   dapui.open()
@@ -292,10 +348,14 @@ vim.fn.sign_define('DapBreakpoint', { text='', texthl='DapBreakpoint', linehl
 vim.fn.sign_define('DapStopped', { text='', texthl='DapStopped', linehl='DapStopped', numhl= 'DapStopped' })
 
 vim.keymap.set('n', '<leader>d', require 'dap'.continue)
+vim.keymap.set('n', '<leader>t', require 'dap'.terminate)
+vim.keymap.set('n', '<leader>r', require 'dap'.restart)
 vim.keymap.set('n', '<leader>b', require 'dap'.toggle_breakpoint)
 vim.keymap.set('n', '<leader>c', require 'dap'.step_over)
 vim.keymap.set('n', '<leader>s', require 'dap'.step_into)
 vim.keymap.set('n', '<leader>o', require 'dap'.step_out)
+
+vim.keymap.set('n', '<leader>k', "<cmd>lua require('dapui').eval()<CR>", opts)
 
 -- custom mapping
 local opts = { noremap=true, silent=true }
