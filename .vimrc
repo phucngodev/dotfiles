@@ -46,6 +46,7 @@ set si
 set termguicolors
 let mapleader = '\\'
 set clipboard^=unnamed,unnamedplus
+set fillchars=vert:\│
 
 let g:go_highlight_parens = 0
 let g:go_highlight_fields = 1
