@@ -38,6 +38,7 @@ paq({
     'nvim-neotest/nvim-nio',
     'rcarriga/nvim-dap-ui',
     'leoluz/nvim-dap-go',
+    'mxsdev/nvim-dap-vscode-js',
     {'ibhagwan/fzf-lua', branch = 'main'},
     {'prettier/vim-prettier', branch='master',  build = 'npm install --frozen-lockfile --production'},
 })
@@ -259,13 +260,6 @@ local dap, dapui, dapgo = require("dap"),require("dapui"), require("dap-go")
 dapgo.setup({})
 dap.configurations.go = {
     {
-      name = "Debug",
-      type = "go",
-      request = "launch",
-      program = "${file}",
-      buildFlags = dapgo.build_flags,
-    },
-    {
           name = "Debug web",
           type = "go",
           request = "launch",
@@ -274,26 +268,19 @@ dap.configurations.go = {
           buildFlags = "-tags=dev",
     },
     {
+      name = "Debug",
+      type = "go",
+      request = "launch",
+      program = "${file}",
+      buildFlags = dapgo.build_flags,
+    },
+    {
       name = "Debug test",
       type = "go",
       request = "launch",
       mode = "test",
       program = "./${relativeFileDirname}",
       buildFlags = dapgo.build_flags,
-    },
-    {
-      name = "Attach",
-      type = "go",
-      mode = "local",
-      request = "attach",
-      processId = filtered_pick_process,
-      buildFlags = dapgo.build_flags,
-    },
-    {
-      name = "Attach remote",
-      type = "go",
-      mode = "remote",
-      request = "attach",
     },
 }
 
@@ -326,6 +313,31 @@ dapui.setup({
       } 
     },
 })
+
+require("dap-vscode-js").setup({
+  debugger_path = vim.fn.stdpath('data') .. "/vscode-js-debug",
+  adapters = { 'pwa-node', 'pwa-chrome' },
+})
+
+local js_based_languages = { "typescript", "javascript" }
+for _, language in ipairs(js_based_languages) do
+  require("dap").configurations[language] = {
+    {
+      name = "Node",
+      type = "pwa-node",
+      request = "launch",
+      program = "${file}",
+      cwd = "${workspaceFolder}",
+    },
+    {
+      name = "Chrome",
+      type = "pwa-chrome",
+      request = "launch",
+      url = "http://localhost:7000",
+      webRoot = "${workspaceFolder}",
+    }
+  }
+end
 
 dap.listeners.before.attach.dapui_config = function()
   dapui.open()
