@@ -72,7 +72,7 @@ vim.opt.encoding                = 'utf-8'
 vim.opt.completeopt             = 'menu,menuone,noselect'
 vim.opt.backspace               = 'indent,eol,start'
 vim.opt.clipboard:append { 'unnamed', 'unnamedplus' }
-vim.opt.laststatus              = 3
+-- vim.opt.laststatus              = 3
 -- vim.opt.list                    = true
 -- vim.opt.listchars:append{tab    = "→ ", space = "⋅"}
 vim.g.mapleader                 = '\\'
@@ -288,15 +288,21 @@ dapui.setup({
     layouts = { {
         elements = { 
             {
-            id = "breakpoints",
-            size = 0.25
-          }, {
-            id = "stacks",
-            size = 0.25
-          }, {
-            id = "repl",
-            size = 0.5
-          }, 
+                id = "breakpoints",
+                size = 0.25
+            }, 
+            {
+                id = "stacks",
+                size = 0.25
+            },
+            {
+                id = "watches",
+                size = 0.25
+            },
+            {
+                id = "repl",
+                size = 0.25
+            }, 
         },
         position = "left",
         size = 40
