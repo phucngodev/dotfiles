@@ -386,7 +386,7 @@ vim.keymap.set('n', '<space>ca', '<cmd> lua vim.lsp.buf.code_action()<CR>', opts
 vim.keymap.set('n', '<C-n>', ':NvimTreeToggle<CR>', opts)
 vim.keymap.set('n', '<c-p>', "<cmd>lua require('fzf-lua').files()<CR>", opts)
 vim.keymap.set('n', '<c-f>', "<cmd>lua require('fzf-lua').buffers()<CR>", opts)
-vim.keymap.set('n', '<c-g>', "<cmd>lua require('fzf-lua').grep_project()<CR>", opts)
+vim.keymap.set('n', '<c-g>', "<cmd>lua require('fzf-lua').live_grep_native()<CR>", opts)
 vim.keymap.set('n', '<c-s>', "<cmd>lua require('fzf-lua').lgrep_curbuf()<CR>", opts)
 vim.keymap.set('v', 'ga', '<Plug>(EasyAlign)', opts)
 vim.keymap.set('n', 'ga', '<Plug>(EasyAlign)', opts)
