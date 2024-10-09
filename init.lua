@@ -33,12 +33,15 @@ paq({
     'rafamadriz/friendly-snippets',
     'bluz71/nvim-linefly',
     'nvim-lua/plenary.nvim',
+    'stevearc/dressing.nvim',
+    'MunifTanjim/nui.nvim',
     'MeanderingProgrammer/render-markdown.nvim',
     'mfussenegger/nvim-dap',
     'nvim-neotest/nvim-nio',
     'rcarriga/nvim-dap-ui',
     'leoluz/nvim-dap-go',
     'mxsdev/nvim-dap-vscode-js',
+    {'yetone/avante.nvim', branch = 'main', build = 'make' },
     {'ibhagwan/fzf-lua', branch = 'main'},
     {'prettier/vim-prettier', branch='master',  build = 'npm install --frozen-lockfile --production'},
 })
@@ -49,6 +52,7 @@ if installed then
 end
 
 vim.opt.number                  = true
+vim.opt.relativenumber          = true
 vim.opt.hidden                  = true
 vim.opt.expandtab               = true
 vim.opt.autoindent              = true
@@ -72,7 +76,7 @@ vim.opt.encoding                = 'utf-8'
 vim.opt.completeopt             = 'menu,menuone,noselect'
 vim.opt.backspace               = 'indent,eol,start'
 vim.opt.clipboard:append { 'unnamed', 'unnamedplus' }
--- vim.opt.laststatus              = 3
+vim.opt.laststatus              = 3
 -- vim.opt.list                    = true
 -- vim.opt.listchars:append{tab    = "→ ", space = "⋅"}
 vim.g.mapleader                 = '\\'
@@ -121,6 +125,37 @@ require('render-markdown').setup ({
     ft = { "markdown", "Avante" },
 })
 
+require('avante_lib').load()
+require('avante').setup ({
+    provider = "ollama",
+    vendors = {
+        ollama = {
+            ["local"] = true,
+            endpoint = "127.0.0.1:11434/v1",
+            model = "qwen2.5-coder",
+            parse_curl_args = function(opts, code_opts)
+                return {
+                    url = opts.endpoint .. "/chat/completions",
+                    headers = {
+                        ["Accept"] = "application/json",
+                        ["Content-Type"] = "application/json",
+                    },
+                    body = {
+                        model = opts.model,
+                        messages = require("avante.providers").copilot.parse_messages(code_opts),
+                        max_tokens = 2048,
+                        stream = true,
+                    },
+                }
+            end,
+            parse_response_data = function(data_stream, event_state, opts)
+                require("avante.providers").openai.parse_response(data_stream, event_state, opts)
+            end,
+        },
+    },
+})
+
+
 local signs = { Error = '󰅙', Info = '󰋼', Hint = '󰌵', Warn = '' }
 vim.g.linefly_options = {
     with_lsp_status = false,
@@ -165,6 +200,7 @@ require("nvim-tree").setup({
 })
 
 require('fzf-lua').setup{
+    file_ignore_patterns = { '%.git$', '%node_modules$', '%vendor$' },
     files = {
         rg_opts = "--files --ignore-case --follow -g '!.git' -g '!vendor' -g '!node_modules' -g '!build'",
     },
@@ -230,7 +266,7 @@ cmp.setup({
          end,
     },
     formatting = {
-        format = lspkind.cmp_format({  symbol_map = { Codeium = '', }}),
+        format = lspkind.cmp_format({}),
     },
     window = {
         completion = {
@@ -253,6 +289,7 @@ cmp.setup({
         { name = 'vsnip' },
     }),
 })
+
 
 
 --- config debugger
@@ -368,7 +405,7 @@ vim.keymap.set('n', '<leader>d', require 'dap'.continue)
 vim.keymap.set('n', '<leader>t', require 'dap'.terminate)
 vim.keymap.set('n', '<leader>r', require 'dap'.restart)
 vim.keymap.set('n', '<leader>b', require 'dap'.toggle_breakpoint)
-vim.keymap.set('n', '<leader>c', require 'dap'.step_over)
+vim.keymap.set('n', '<leader>n', require 'dap'.step_over)
 vim.keymap.set('n', '<leader>s', require 'dap'.step_into)
 vim.keymap.set('n', '<leader>o', require 'dap'.step_out)
 
@@ -384,7 +421,7 @@ vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
 vim.keymap.set('n', '<space>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
 vim.keymap.set('n', '<space>ca', '<cmd> lua vim.lsp.buf.code_action()<CR>', opts)
 vim.keymap.set('n', '<C-n>', ':NvimTreeToggle<CR>', opts)
-vim.keymap.set('n', '<c-p>', "<cmd>lua require('fzf-lua').files()<CR>", opts)
+vim.keymap.set('n', '<c-p>', "<cmd>lua require('fzf-lua').files({ cwd_prompt = false, prompt = 'Files❯ ' })<CR>", opts)
 vim.keymap.set('n', '<c-f>', "<cmd>lua require('fzf-lua').buffers()<CR>", opts)
 vim.keymap.set('n', '<c-g>', "<cmd>lua require('fzf-lua').live_grep_native()<CR>", opts)
 vim.keymap.set('n', '<c-s>', "<cmd>lua require('fzf-lua').lgrep_curbuf()<CR>", opts)

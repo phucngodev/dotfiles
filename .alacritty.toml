@@ -1,5 +1,10 @@
+[general]
 live_config_reload = true
 working_directory = "/Users/phuc/Projects/"
+
+[terminal.shell]
+args = ["-l", "-c", "tmux attach || tmux"]
+program = "/bin/bash"
 
 [colors.primary]
 background = "0xfafafa"
@@ -30,16 +35,12 @@ text   = "0xbe7e05"
 cursor = "0xF9A825"
 
 [font]
-size = 18.3
+size = 19
 
 [font.normal]
 family = "Consolas 7NF"
 
 [font.offset]
-x = 0
-y = 4
-
-[font.glyph_offset]
 x = 0
 y = 2
 
@@ -48,10 +49,6 @@ history = 10000
 
 [selection]
 save_to_clipboard = true
-
-[shell]
-args = ["-l", "-c", "tmux attach || tmux"]
-program = "/bin/bash"
 
 [window]
 # startup_mode = "Maximized"
@@ -64,10 +61,10 @@ x = 0
 y = 0
 
 [window.position]
-x = 700
-y = 150
+x = 800
+y = 160
 
 [window.dimensions]
-columns = 170
+columns = 175
 lines = 49
 
