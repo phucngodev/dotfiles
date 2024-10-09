@@ -40,6 +40,7 @@ paq({
     'leoluz/nvim-dap-go',
     'mxsdev/nvim-dap-vscode-js',
     {'ibhagwan/fzf-lua', branch = 'main'},
+    {'magicalne/nvim.ai', branch = 'main' },
     {'prettier/vim-prettier', branch='master',  build = 'npm install --frozen-lockfile --production'},
 })
 
@@ -119,6 +120,14 @@ require('render-markdown').setup ({
       file_types = { "markdown", "Avante" },
     },
     ft = { "markdown", "Avante" },
+})
+
+local ai = require('ai')
+ai.setup({
+    provider = "ollama",
+    ollama = {
+        model = "llama3.2",
+    },
 })
 
 local signs = { Error = '󰅙', Info = '󰋼', Hint = '󰌵', Warn = '' }
@@ -368,7 +377,7 @@ vim.keymap.set('n', '<leader>d', require 'dap'.continue)
 vim.keymap.set('n', '<leader>t', require 'dap'.terminate)
 vim.keymap.set('n', '<leader>r', require 'dap'.restart)
 vim.keymap.set('n', '<leader>b', require 'dap'.toggle_breakpoint)
-vim.keymap.set('n', '<leader>c', require 'dap'.step_over)
+vim.keymap.set('n', '<leader>n', require 'dap'.step_over)
 vim.keymap.set('n', '<leader>s', require 'dap'.step_into)
 vim.keymap.set('n', '<leader>o', require 'dap'.step_out)
 
