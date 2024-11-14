@@ -165,7 +165,13 @@ vim.g.linefly_options = {
     information_symbol = '󰌵',
 }
 require('nvim-autopairs').setup{}
-require("focus").setup({ ui = { signcolumn = false } })
+require("focus").setup({
+    ui = { signcolumn = false },
+    autoresize = {
+        enable = true,
+        minwidth = 30,
+    },
+})
 
 local ignore_filetypes = { 'NvimTree', 'dapui_stacks', 'dap-repl', 'dapui_breakpoints', 'dapui_scopes' }
 local augroup = vim.api.nvim_create_augroup('FocusDisable', { clear = true })

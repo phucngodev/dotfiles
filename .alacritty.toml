@@ -51,20 +51,7 @@ history = 10000
 save_to_clipboard = true
 
 [window]
-# startup_mode = "Maximized"
+title = ""
+startup_mode = "Maximized"
 dynamic_padding = true
 resize_increments = true
-title = ""
-
-[window.padding]
-x = 0
-y = 0
-
-[window.position]
-x = 800
-y = 160
-
-[window.dimensions]
-columns = 175
-lines = 49
-
