@@ -35,14 +35,14 @@ text   = "0xbe7e05"
 cursor = "0xF9A825"
 
 [font]
-size = 19
+size = 20
 
 [font.normal]
 family = "Consolas 7NF"
 
 [font.offset]
 x = 0
-y = 2
+y = 3
 
 [scrolling]
 history = 10000
