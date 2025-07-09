@@ -1,0 +1,21 @@
+[user]
+	name = Phuc
+	email = "phuc@phucngo.dev"
+[init]
+	defaultBranch = main
+[pull]
+	ff = only
+[core]
+	excludesfile = /Users/phuc/.global_ignore
+	pager = delta
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[interactive]
+	diffFilter = delta --color-only
+[delta]
+	navigate = true
+[merge]
+	conflictStyle = zdiff3
