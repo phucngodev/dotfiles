@@ -1,0 +1,36 @@
+add_newline = false
+[line_break]
+disabled = true
+
+[directory]
+truncation_length = 1
+
+[cmd_duration]
+disabled=true
+
+[golang]
+disabled=true
+
+[php]
+disabled=true
+
+[nodejs]
+disabled=true
+
+[aws]
+disabled=true
+
+[gcloud]
+disabled=true
+
+[package]
+disabled=true
+
+[helm]
+disabled=true
+
+[buf]
+disabled=true
+
+[battery]
+disabled=true

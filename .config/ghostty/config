@@ -1,0 +1,39 @@
+theme                     =light
+shell-integration         = zsh
+command                   = /bin/zsh -l -c "tmux a || tmux"
+cursor-style              = block
+copy-on-select            = true
+scrollback-limit          = 1000000
+macos-titlebar-proxy-icon = hidden
+title                     = " "
+
+working-directory         = /Users/phuc/Documents/Codes/
+font-family               = "Consolas Nerd Font Mono"
+font-size                 = 19
+adjust-cell-height        = 2
+font-style                = false
+font-style-italic         = false
+font-style-bold           = false
+font-style-bold-italic    = false
+
+maximize                  = false
+window-padding-color      = extend
+window-padding-balance    = true
+window-padding-x          = 0
+window-padding-y          = 0
+window-width              = 170
+window-height             = 52
+
+# keybind = ctrl+shift+h=goto_split:left
+# keybind = ctrl+shift+j=goto_split:bottom
+# keybind = ctrl+shift+k=goto_split:top
+# keybind = ctrl+shift+l=goto_split:right
+# keybind = ctrl+b>h=new_split:left
+# keybind = ctrl+b>j=new_split:down
+# keybind = ctrl+b>k=new_split:up
+# keybind = ctrl+b>l=new_split:right
+# keybind = ctrl+shift+up=resize_split:up,50
+# keybind = ctrl+shift+down=resize_split:down,50
+# keybind = ctrl+shift+left=resize_split:left,50
+# keybind = ctrl+shift+right=resize_split:right,50
+# keybind = ctrl+shift+enter=toggle_split_zoom

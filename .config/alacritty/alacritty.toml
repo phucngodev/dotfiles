@@ -1,0 +1,45 @@
+[general]
+import = [
+    "~/.config/alacritty/light.toml"
+]
+live_config_reload = true
+working_directory = "/Users/phuc/Documents/Codes"
+
+[terminal.shell]
+program = "/bin/zsh"
+args = ["-l", "-c", "tmux a || tmux"]
+
+[font]
+size = 19
+
+[font.normal]
+family = "Consolas Nerd Font Mono"
+
+[font.offset]
+x = 0
+y = 2
+
+[font.glyph_offset]
+x = 0
+y = 2
+
+[scrolling]
+history = 10000
+
+[selection]
+save_to_clipboard = true
+
+[window]
+decorations_theme_variant = "light"
+# startup_mode = "Maximized"
+title = ""
+dynamic_padding = true
+resize_increments = true
+
+[window.position]
+x = 750
+y = 180
+
+[window.dimensions]
+columns = 180
+lines = 55
